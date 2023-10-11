@@ -24,12 +24,13 @@ def load_prompt(content):
 
 	Now remember short response with only 1 code snippet per message.""".format(content=content)
 
-	prompt_template = ChatPromptTemplate(messages = [
-		SystemMessage(content=template), 
-		MessagesPlaceholder(variable_name="chat_history"), 
-		HumanMessagePromptTemplate.from_template("{input}")
-		])
-	return prompt_template
+	return ChatPromptTemplate(
+		messages=[
+			SystemMessage(content=template),
+			MessagesPlaceholder(variable_name="chat_history"),
+			HumanMessagePromptTemplate.from_template("{input}"),
+		]
+	)
 
 def load_prompt_with_questions(content):
 
@@ -70,9 +71,10 @@ def load_prompt_with_questions(content):
 
 	 """.format(content=content)
 
-	prompt_template = ChatPromptTemplate(messages = [
-		SystemMessage(content=template), 
-		MessagesPlaceholder(variable_name="chat_history"), 
-		HumanMessagePromptTemplate.from_template("{input}")
-		])
-	return prompt_template
+	return ChatPromptTemplate(
+		messages=[
+			SystemMessage(content=template),
+			MessagesPlaceholder(variable_name="chat_history"),
+			HumanMessagePromptTemplate.from_template("{input}"),
+		]
+	)
